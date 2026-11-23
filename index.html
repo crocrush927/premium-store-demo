@@ -4,75 +4,67 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ROYAL STORE | فروشگاه لوکس</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ROYAL STORE | Luxury Shopping</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
-:root{--gold:#d8b56a;--dark:#0b0b0d;--panel:#17171b;--muted:#aaa}
+:root{--gold:#dfbd78;--bg:#09090b;--panel:#17171b;--muted:#aaa}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--dark);color:#fff;font-family:Vazirmatn,Tahoma,sans-serif}
+body{margin:0;background:var(--bg);color:white;font-family:Vazirmatn,Tahoma,sans-serif}
 button,input{font:inherit}
 button{cursor:pointer}
-header{position:sticky;top:0;z-index:10;background:#101014ed;backdrop-filter:blur(15px);border-bottom:1px solid #ffffff12}
-.nav{max-width:1200px;margin:auto;padding:17px 22px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+header{position:sticky;top:0;z-index:10;background:#101014f2;border-bottom:1px solid #ffffff18;backdrop-filter:blur(15px)}
+.nav{max-width:1200px;margin:auto;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
 .logo{font-size:23px;font-weight:800;color:var(--gold);letter-spacing:2px}
-.logo small{display:block;font-size:9px;letter-spacing:5px;color:#aaa;text-align:center}
-.navlinks{display:flex;gap:22px}
+.logo small{display:block;font-size:9px;color:#aaa;letter-spacing:5px;text-align:center}
+.navlinks{display:flex;gap:20px}
 .navlinks a{color:#ddd;text-decoration:none;font-size:13px}
-.navlinks a:hover{color:var(--gold)}
-.goldbtn{background:linear-gradient(135deg,#f2d995,#b58a3c);color:#17130b;border:0;border-radius:8px;padding:11px 18px;font-weight:800}
-.hero{max-width:1200px;margin:28px auto;padding:65px 7%;min-height:380px;border-radius:22px;overflow:hidden;position:relative;display:flex;align-items:center;background:linear-gradient(90deg,#090909 5%,#090909d9 45%,#09090920),url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600') center/cover}
-.hero-content{max-width:520px;position:relative}
-.eyebrow{color:var(--gold);letter-spacing:3px;font-size:12px}
-.hero h1{font-size:clamp(30px,5vw,54px);line-height:1.5;margin:14px 0}
+.goldbtn{background:linear-gradient(135deg,#f5dfa5,#bd9145);color:#17130b;border:0;border-radius:9px;padding:12px 19px;font-weight:800}
+.hero{max-width:1200px;margin:25px auto;padding:70px 7%;min-height:410px;border-radius:22px;display:flex;align-items:center;background:linear-gradient(90deg,#090909 5%,#090909df 48%,#09090920),url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600') center/cover}
+.hero-content{max-width:520px}
+.eyebrow{color:var(--gold);letter-spacing:4px;font-size:12px}
+.hero h1{font-size:clamp(32px,5vw,55px);line-height:1.5;margin:15px 0}
 .hero p{color:#ddd;line-height:2;font-size:14px}
-.hero .goldbtn{margin-top:15px;padding:14px 25px}
-.container{max-width:1200px;margin:auto;padding:25px 22px}
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:38px 0 20px}
-.section-head h2{margin:0;font-size:25px}
-.section-head p{margin:6px 0 0;color:var(--muted);font-size:12px}
-.goldline{width:48px;height:3px;background:var(--gold);margin-top:12px}
-.categories{display:flex;gap:10px;overflow:auto;padding:8px 0 18px}
-.cat{white-space:nowrap;background:#1c1c21;color:#ddd;border:1px solid #333;padding:10px 18px;border-radius:30px}
-.cat.active,.cat:hover{background:var(--gold);color:#151515;border-color:var(--gold)}
-.search{width:100%;background:#17171b;border:1px solid #34343a;border-radius:10px;padding:14px 17px;color:#fff;outline:none}
-.search:focus{border-color:var(--gold)}
+.container{max-width:1200px;margin:auto;padding:20px}
+.section-head{margin:40px 0 20px}
+.section-head h2{font-size:25px;margin:0}
+.section-head p{color:var(--muted);font-size:12px}
+.goldline{width:55px;height:3px;background:var(--gold);margin-top:12px}
+.search{width:100%;padding:14px;background:#17171b;border:1px solid #444;border-radius:10px;color:white;outline:none}
+.categories{display:flex;gap:10px;overflow:auto;padding:17px 0}
+.cat{white-space:nowrap;background:#1c1c21;color:#ddd;border:1px solid #383838;padding:10px 18px;border-radius:30px}
+.cat.active,.cat:hover{background:var(--gold);color:#111}
 .products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.card{background:var(--panel);border:1px solid #ffffff12;border-radius:15px;overflow:hidden;transition:.25s}
-.card:hover{transform:translateY(-6px);border-color:#d8b56a77}
-.product-image{height:205px;position:relative;background:#222;overflow:hidden}
-.product-image img{width:100%;height:100%;object-fit:cover;transition:.4s}
-.card:hover img{transform:scale(1.06)}
-.tag{position:absolute;top:12px;right:12px;background:var(--gold);color:#17130b;padding:5px 10px;border-radius:20px;font-size:10px;font-weight:bold}
+.card{background:var(--panel);border:1px solid #ffffff16;border-radius:15px;overflow:hidden;transition:.3s}
+.card:hover{transform:translateY(-7px);border-color:var(--gold)}
+.product-image{height:220px;position:relative;overflow:hidden;background:#222}
+.product-image img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.card:hover img{transform:scale(1.08)}
+.tag{position:absolute;top:12px;right:12px;background:var(--gold);color:#111;padding:5px 11px;border-radius:20px;font-size:10px;font-weight:bold}
 .card-info{padding:15px}
 .card h3{font-size:15px;margin:0 0 8px}
 .desc{font-size:11px;color:#aaa;line-height:1.8;min-height:38px}
 .price{color:var(--gold);font-weight:800;margin:12px 0}
-.card-actions{display:flex;gap:8px}
-.card-actions button{flex:1;padding:10px 5px;border-radius:7px;border:0;font-size:11px}
-.add{background:var(--gold);color:#17130b;font-weight:bold}
-.details{background:#303036;color:#fff}
+.add{width:100%;padding:11px;border:0;border-radius:8px;background:var(--gold);color:#17130b;font-weight:bold}
 .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:45px 0}
-.benefit{background:#17171b;border:1px solid #ffffff12;border-radius:13px;padding:22px;text-align:center}
-.benefit strong{display:block;color:var(--gold);font-size:15px;margin:8px}
+.benefit,.cartbox{background:var(--panel);border:1px solid #ffffff16;border-radius:14px;padding:22px;text-align:center}
+.benefit strong{display:block;color:var(--gold);margin:9px}
 .benefit span{font-size:12px;color:#aaa}
-.cartbox{background:#17171b;border:1px solid #333;border-radius:15px;padding:22px;margin:35px 0}
+.cartbox{margin:35px 0;text-align:right}
 .cartrow{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid #333;padding:13px 0;font-size:13px}
 .remove{background:#442629;color:#ffb5b5;border:0;border-radius:6px;padding:7px 10px}
 .total{color:var(--gold);font-size:20px;font-weight:bold;margin:20px 0}
-.contact{background:linear-gradient(135deg,#201d17,#17171b);border:1px solid #6c5730;border-radius:16px;padding:25px;margin:35px 0}
-.contact input,.contact textarea{width:100%;padding:13px;background:#101014;border:1px solid #444;color:#fff;border-radius:8px;margin:7px 0;outline:none}
-.contact textarea{min-height:90px}
-footer{border-top:1px solid #333;text-align:center;padding:30px 15px;color:#999;font-size:12px;line-height:2}
-footer b{color:var(--gold)}
 .empty{text-align:center;color:#aaa;padding:20px}
-@media(max-width:850px){.products{grid-template-columns:repeat(2,1fr)}.navlinks{display:none}.hero{margin:15px 12px;min-height:340px}.benefits{grid-template-columns:1fr}}
-@media(max-width:420px){.products{gap:10px}.product-image{height:145px}.card-info{padding:10px}.card h3{font-size:13px}.hero{padding:35px 7%}.container{padding:18px 12px}}
+.contact{background:linear-gradient(135deg,#201d17,#17171b);border:1px solid #6c5730;border-radius:16px;padding:25px;margin:35px 0}
+.contact input,.contact textarea{width:100%;padding:13px;background:#101014;border:1px solid #444;color:white;border-radius:8px;margin:7px 0}
+.contact textarea{min-height:90px}
+footer{text-align:center;padding:30px;color:#999;border-top:1px solid #333;font-size:12px}
+@media(max-width:850px){.products{grid-template-columns:repeat(2,1fr)}.navlinks{display:none}.benefits{grid-template-columns:1fr}.hero{margin:12px;min-height:340px}}
+@media(max-width:420px){.products{gap:10px}.product-image{height:155px}.card-info{padding:10px}.container{padding:14px}}
 </style>
 </head>
 <body>
-
 <header>
 <div class="nav">
 <div class="logo">ROYAL STORE<small>PREMIUM SHOPPING</small></div>
@@ -94,8 +86,11 @@ footer b{color:var(--gold)}
 
 <main class="container">
 <section id="shop">
-<div class="section-head"><div><h2>محصولات منتخب</h2><div class="goldline"></div><p>انتخاب‌هایی برای سلیقه‌های خاص</p></div></div>
-<input class="search" id="search" placeholder="نام محصول موردنظر را جستجو کن..." oninput="render()">
+<div class="section-head">
+<h2>محصولات منتخب</h2><div class="goldline"></div>
+<p>انتخاب‌هایی برای سلیقه‌های خاص</p>
+</div>
+<input class="search" id="search" placeholder="نام محصول را جستجو کن..." oninput="render()">
 <div class="categories" id="categories"></div>
 <div class="products" id="products"></div>
 </section>
@@ -108,14 +103,14 @@ footer b{color:var(--gold)}
 
 <section class="cartbox" id="cart">
 <h2>سبد خرید شما</h2>
-<div id="cartItems" class="empty">هنوز محصولی انتخاب نکرده‌اید.</div>
+<div id="cartItems" class="empty">سبد خرید خالی است.</div>
 <div class="total">مجموع: <span id="total">۰</span> تومان</div>
 <button class="goldbtn" onclick="checkout()">ثبت سفارش از طریق واتساپ</button>
 </section>
 
 <section class="contact" id="contact">
 <h2>با ما در ارتباط باشید</h2>
-<p style="color:#aaa;font-size:13px">برای پرسش یا راهنمایی، پیام خود را ارسال کنید.</p>
+<p style="color:#aaa;font-size:13px">برای پرسش یا راهنمایی پیام خود را ارسال کنید.</p>
 <input id="customer" placeholder="نام شما">
 <input id="phone" placeholder="شماره تماس">
 <textarea id="message" placeholder="پیام شما"></textarea>
@@ -133,14 +128,14 @@ footer b{color:var(--gold)}
 const WHATSAPP="989120000000";
 
 const items=[
-{id:1,name:"ساعت کلاسیک",cat:"دیجیتال",price:2500000,img:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600",desc:"طراحی شیک و مناسب استایل روزانه"},
-{id:2,name:"هدفون بی‌سیم",cat:"دیجیتال",price:1200000,img:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600",desc:"صدای باکیفیت و طراحی مدرن"},
-{id:3,name:"کفش اسپرت",cat:"مد و پوشاک",price:1900000,img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",desc:"راحتی و زیبایی برای هر روز"},
-{id:4,name:"کیف دستی",cat:"مد و پوشاک",price:1450000,img:"https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600",desc:"ظاهری زیبا و کاربردی"},
-{id:5,name:"دوربین عکاسی",cat:"دیجیتال",price:8500000,img:"https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600",desc:"برای ثبت لحظه‌های ماندگار"},
-{id:6,name:"عینک آفتابی",cat:"مد و پوشاک",price:850000,img:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600",desc:"طراحی جذاب و مدرن"},
-{id:7,name:"عطر لوکس",cat:"زیبایی",price:1100000,img:"https://images.unsplash.com/photo-1541643600914-78b084683601?w=600",desc:"رایحه‌ای خاص و ماندگار"},
-{id:8,name:"چراغ دکوراتیو",cat:"خانه",price:650000,img:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600",desc:"زیبایی و نور برای فضای خانه"}
+{id:1,name:"ساعت کلاسیک",cat:"دیجیتال",price:2500000,img:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800",desc:"طراحی شیک و مناسب استایل روزانه"},
+{id:2,name:"هدفون بی‌سیم",cat:"دیجیتال",price:1200000,img:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800",desc:"صدای باکیفیت و طراحی مدرن"},
+{id:3,name:"کفش اسپرت",cat:"مد و پوشاک",price:1900000,img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800",desc:"راحتی و زیبایی برای هر روز"},
+{id:4,name:"کیف دستی",cat:"مد و پوشاک",price:1450000,img:"https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800",desc:"ظاهری زیبا و کاربردی"},
+{id:5,name:"دوربین عکاسی",cat:"دیجیتال",price:8500000,img:"https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800",desc:"برای ثبت لحظه‌های ماندگار"},
+{id:6,name:"عینک آفتابی",cat:"مد و پوشاک",price:850000,img:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800",desc:"طراحی جذاب و مدرن"},
+{id:7,name:"عطر لوکس",cat:"زیبایی",price:1100000,img:"https://images.unsplash.com/photo-1541643600914-78b084683601?w=800",desc:"رایحه‌ای خاص و ماندگار"},
+{id:8,name:"چراغ دکوراتیو",cat:"خانه",price:650000,img:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=800",desc:"زیبایی و نور برای فضای خانه"}
 ];
 
 let cart=[];
@@ -160,7 +155,7 @@ let q=document.getElementById("search").value.toLowerCase();
 let filtered=items.filter(p=>(category==="همه"||p.cat===category)&&p.name.toLowerCase().includes(q));
 document.getElementById("products").innerHTML=filtered.map(p=>`
 <div class="card">
-<div class="product-image"><img src="${p.img}" alt="${p.name}" loading="lazy"><span class="tag">منتخب</span></div>
+<div class="product-image"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
 <div class="card-info"><h3>${p.name}</h3><div class="desc">${p.desc}</div>
 <div class="price">${money(p.price)} تومان</div>
 <div class="card-actions"><button class="add" onclick="add(${p.id})">افزودن به سبد</button></div></div>
@@ -203,4 +198,5 @@ render();
 </script>
 </body>
 </html>
+
 
