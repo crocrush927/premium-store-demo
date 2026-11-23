@@ -1,0 +1,236 @@
+<!DOCTYPE html>  <html lang="fa" dir="rtl">    <head>    
+<meta charset="UTF-8">    
+<meta name="viewport" content="width=device-width, initial-scale=1">    
+<title>فروشگاه آنلاین پرمیوم</title>    
+<style>    
+:root{--bg:#f7f6f3;--surface:#fff;--text:#1c1c1e;--muted:#6b6b70;--accent:#b8860b;--accent-d:#8f6a08;--border:#e7e4dc;--danger:#c0392b;--radius:16px;--shadow:0 6px 24px rgba(0,0,0,.07)}    
+*{box-sizing:border-box;margin:0;padding:0}    
+html{scroll-behavior:smooth}    
+body{font-family:Tahoma,"Vazirmatn","Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.8}    
+button{font-family:inherit;cursor:pointer;border:0}    
+.container{max-width:1200px;margin:auto;padding:0 20px}    
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}    
+.bar{display:flex;align-items:center;gap:16px;padding:12px 0}    
+.logo{font-size:1.4rem;font-weight:700;color:var(--accent);white-space:nowrap}    
+.search{flex:1;position:relative}    
+.search input{width:100%;padding:11px 16px;border:1px solid var(--border);border-radius:999px;font:inherit;background:var(--bg);outline:none}    
+.search input:focus{border-color:var(--accent)}    
+.cart-btn{position:relative;background:var(--text);color:#fff;padding:10px 18px;border-radius:999px;font-size:.95rem}    
+.badge{position:absolute;top:-6px;left:-6px;background:var(--accent);color:#fff;min-width:22px;height:22px;border-radius:50%;font-size:.75rem;display:grid;place-items:center}    
+.hero{background:linear-gradient(135deg,#1c1c1e,#3a3226);color:#fff;padding:64px 0;text-align:center}    
+.hero h1{font-size:clamp(1.6rem,4vw,2.6rem);margin-bottom:10px}    
+.hero p{color:#d9d3c5;max-width:560px;margin:0 auto 22px}    
+.hero a{display:inline-block;background:var(--accent);color:#fff;padding:12px 30px;border-radius:999px;text-decoration:none}    
+.cats{display:flex;gap:10px;overflow-x:auto;padding:26px 0 8px}    
+.chip{background:var(--surface);border:1px solid var(--border);padding:8px 20px;border-radius:999px;white-space:nowrap;font-size:.95rem;color:var(--text)}    
+.chip.active{background:var(--accent);border-color:var(--accent);color:#fff}    
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px;padding:18px 0 50px}    
+.card{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s}    
+.card:hover{transform:translateY(-4px)}    
+.thumb{height:170px;display:grid;place-items:center;font-size:4.2rem;cursor:pointer}    
+.info{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}    
+.info small{color:var(--muted)}    
+.info h3{font-size:1rem}    
+.price{font-weight:700;color:var(--accent-d)}    
+.add{margin-top:auto;background:var(--text);color:#fff;padding:10px;border-radius:12px;transition:background .2s}    
+.add:hover{background:var(--accent)}    
+.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:50px 0}    
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:.25s;z-index:90}    
+.overlay.show{opacity:1;pointer-events:auto}    
+.drawer{position:fixed;top:0;bottom:0;left:0;width:min(400px,100%);background:var(--surface);z-index:100;transform:translateX(-105%);transition:transform .3s;display:flex;flex-direction:column}    
+.drawer.show{transform:none}    
+.drawer-h{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--border);font-weight:700}    
+.x{background:none;font-size:1.5rem;color:var(--muted)}    
+.items{flex:1;overflow-y:auto;padding:12px 20px}    
+.item{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--border)}    
+.item .ic{font-size:2rem;width:52px;height:52px;border-radius:12px;display:grid;place-items:center;flex-shrink:0}    
+.item .nm{flex:1;font-size:.92rem}    
+.qty{display:flex;align-items:center;gap:8px;margin-top:4px}    
+.qty button{width:26px;height:26px;border-radius:50%;background:var(--bg);border:1px solid var(--border)}    
+.rm{background:none;color:var(--danger);font-size:.8rem}    
+.drawer-f{padding:18px 20px;border-top:1px solid var(--border)}    
+.total{display:flex;justify-content:space-between;font-weight:700;margin-bottom:12px}    
+.checkout{width:100%;background:var(--accent);color:#fff;padding:13px;border-radius:12px;font-size:1rem}    
+.modal{position:fixed;inset:0;display:none;place-items:center;z-index:110;padding:16px}    
+.modal.show{display:grid}    
+.modal-box{background:var(--surface);border-radius:20px;max-width:560px;width:100%;overflow:hidden;position:relative}    
+.modal-box .x{position:absolute;top:10px;left:14px}    
+.modal-img{height:230px;display:grid;place-items:center;font-size:6rem}    
+.modal-body{padding:22px}    
+.modal-body h2{margin-bottom:6px}    
+.modal-body p{color:var(--muted);margin:8px 0 16px}    
+section.contact{background:var(--surface);padding:50px 0;border-top:1px solid var(--border)}    
+section.contact h2{text-align:center;margin-bottom:20px}    
+form{max-width:520px;margin:auto;display:grid;gap:12px}    
+form input,form textarea{padding:12px 14px;border:1px solid var(--border);border-radius:12px;font:inherit;background:var(--bg)}    
+form button{background:var(--text);color:#fff;padding:12px;border-radius:12px}    
+footer{text-align:center;padding:22px;color:var(--muted);font-size:.9rem}    
+.wa{position:fixed;bottom:20px;right:20px;width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;font-size:1.7rem;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.25);z-index:40}    
+.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,40px);background:var(--text);color:#fff;padding:10px 22px;border-radius:999px;opacity:0;transition:.3s;z-index:120;pointer-events:none}    
+.toast.show{opacity:1;transform:translate(-50%,0)}    
+@media(max-width:600px){.bar{flex-wrap:wrap}.logo{order:1}.cart-btn{order:2;margin-right:auto}.search{order:3;flex-basis:100%}.hero{padding:44px 0}.grid{grid-template-columns:repeat(2,1fr);gap:12px}.thumb{height:130px;font-size:3.2rem}}    
+</style>    
+</head>    
+<body>  <header>    
+  <div class="container bar">    
+    <div class="logo">✦ فروشگاه پرمیوم</div>    
+    <div class="search"><input id="search" type="search" placeholder="جستجوی محصول…" autocomplete="off"></div>    
+    <button class="cart-btn" id="openCart">🛒 سبد خرید<span class="badge" id="count">۰</span></button>    
+  </div>    
+</header>  <section class="hero">    
+  <div class="container">    
+    <h1>بهترین‌ها را با کیفیت بی‌نظیر بخرید</h1>    
+    <p>محصولات منتخب با ضمانت اصالت، ارسال سریع و پشتیبانی همیشگی.</p>    
+    <a href="#products">مشاهده محصولات</a>    
+  </div>    
+</section>  <main class="container" id="products">    
+  <div class="cats" id="cats"></div>    
+  <div class="grid" id="grid"></div>    
+</main>  <section class="contact" id="contact">    
+  <div class="container">    
+    <h2>تماس با ما</h2>    
+    <form id="contactForm">    
+      <input required placeholder="نام و نام خانوادگی">    
+      <input required type="tel" placeholder="شماره تماس">    
+      <textarea required rows="4" placeholder="پیام شما"></textarea>    
+      <button type="submit">ارسال پیام</button>    
+    </form>    
+  </div>    
+</section>  <footer>© ۱۴۰۵ فروشگاه پرمیوم — تمامی حقوق محفوظ است.</footer>  <a class="wa" id="wa" href="https://wa.me/989120000000" target="_blank" rel="noopener" aria-label="واتساپ">💬</a>  <div class="overlay" id="overlay"></div>    
+<aside class="drawer" id="drawer" aria-label="سبد خرید">    
+  <div class="drawer-h"><span>سبد خرید شما</span><button class="x" id="closeCart" aria-label="بستن">×</button></div>    
+  <div class="items" id="items"></div>    
+  <div class="drawer-f">    
+    <div class="total"><span>جمع کل</span><span id="total">۰ تومان</span></div>    
+    <button class="checkout" id="checkout">ادامه و تکمیل خرید</button>    
+  </div>    
+</aside>  <div class="modal" id="modal">    
+  <div class="modal-box">    
+    <button class="x" id="closeModal" aria-label="بستن">×</button>    
+    <div class="modal-img" id="mImg"></div>    
+    <div class="modal-body">    
+      <small id="mCat"></small>    
+      <h2 id="mName"></h2>    
+      <div class="price" id="mPrice"></div>    
+      <p id="mDesc"></p>    
+      <button class="add" id="mAdd" style="width:100%">افزودن به سبد خرید</button>    
+    </div>    
+  </div>    
+</div>  <div class="toast" id="toast"></div>  <script>    
+// ===== داده‌ی محصولات (برای تغییر، این آرایه را ویرایش کنید) =====    
+const PRODUCTS = [    
+  {id:1,name:"هدفون بی‌سیم نویزکنسلینگ",cat:"الکترونیک",price:2450000,emoji:"🎧",bg:"#e8eefc",desc:"کیفیت صدای استودیویی، ۴۰ ساعت شارژدهی و حذف نویز فعال."},    
+  {id:2,name:"ساعت هوشمند اسپرت",cat:"الکترونیک",price:3200000,emoji:"⌚",bg:"#e6f4ee",desc:"پایش سلامت، GPS داخلی و نمایشگر AMOLED."},    
+  {id:3,name:"پاوربانک ۲۰۰۰۰ میلی‌آمپر",cat:"الکترونیک",price:890000,emoji:"🔋",bg:"#fdf0e1",desc:"شارژ سریع ۶۵ وات و دو خروجی USB-C."},    
+  {id:4,name:"کوله‌پشتی ضدآب",cat:"مد و پوشاک",price:1150000,emoji:"🎒",bg:"#efe8f7",desc:"جنس مقاوم، جای لپ‌تاپ ۱۶ اینچ و کیف مخفی ضدسرقت."},    
+  {id:5,name:"کفش کتانی راحتی",cat:"مد و پوشاک",price:1780000,emoji:"👟",bg:"#fbe9e9",desc:"زیره طبی و سبک، مناسب پیاده‌روی و استفاده روزانه."},    
+  {id:6,name:"عینک آفتابی کلاسیک",cat:"مد و پوشاک",price:670000,emoji:"🕶️",bg:"#f2efe4",desc:"لنز پلاریزه با محافظ UV400."},    
+  {id:7,name:"ماگ سرامیکی دست‌ساز",cat:"خانه و آشپزخانه",price:240000,emoji:"☕",bg:"#f7ece4",desc:"سرامیک باکیفیت، مناسب ماکروفر و ظرفشویی."},    
+  {id:8,name:"چراغ مطالعه هوشمند",cat:"خانه و آشپزخانه",price:520000,emoji:"💡",bg:"#fff6d9",desc:"سه حالت نور، تنظیم شدت و شارژر بی‌سیم روی پایه."},    
+  {id:9,name:"ست چاقوی آشپزخانه",cat:"خانه و آشپزخانه",price:1320000,emoji:"🔪",bg:"#e9eef0",desc:"فولاد ضدزنگ با دسته ارگونومیک، شامل ۶ تکه."},    
+  {id:10,name:"عطر مردانه چوبی",cat:"زیبایی و سلامت",price:1950000,emoji:"🧴",bg:"#e9e3f0",desc:"رایحه گرم چوب و عنبر با ماندگاری بالا."},    
+  {id:11,name:"کرم مرطوب‌کننده روز",cat:"زیبایی و سلامت",price:380000,emoji:"🧼",bg:"#e4f3f5",desc:"فرمول سبک با SPF30 برای انواع پوست."},    
+  {id:12,name:"ماساژور گردن برقی",cat:"زیبایی و سلامت",price:1480000,emoji:"💆",bg:"#f4e8ee",desc:"گرمایش مادون قرمز و ۵ حالت ماساژ."}    
+];    
+const CATS = ["همه", ...new Set(PRODUCTS.map(p => p.cat))];    
+const WHATSAPP = "989120000000"; // شماره واتساپ با کد کشور و بدون +    // ===== وضعیت =====
+let activeCat = "همه", query = "", cart = [];
+try { cart = JSON.parse(localStorage.getItem("cart") || "[]"); } catch (e) { cart = []; }
+
+const $ = id => document.getElementById(id);
+const fmt = n => n.toLocaleString("fa-IR") + " تومان";
+const save = () => { try { localStorage.setItem("cart", JSON.stringify(cart)); } catch (e) {} };
+const norm = s => s.replace(/ي/g, "ی").replace(/ك/g, "ک").toLowerCase();
+
+// ===== نمایش محصولات =====
+function renderCats() {
+$("cats").innerHTML = CATS.map(c => <button class="chip ${c === activeCat ? "active" : ""}" data-cat="${c}">${c}</button>).join("");
+}
+function renderGrid() {
+const list = PRODUCTS.filter(p =>
+(activeCat === "همه" || p.cat === activeCat) && norm(p.name + " " + p.cat).includes(norm(query.trim())));
+$("grid").innerHTML = list.length ? list.map(p =>      <article class="card">     <div class="thumb" style="background:${p.bg}" data-view="${p.id}">${p.emoji}</div>     <div class="info">     <small>${p.cat}</small>     <h3>${p.name}</h3>     <div class="price">${fmt(p.price)}</div>     <button class="add" data-add="${p.id}">افزودن به سبد خرید</button>     </div>     </article>).join("") : <div class="empty">محصولی با این مشخصات پیدا نشد.</div>;
+}
+
+// ===== سبد خرید =====
+function addToCart(id) {
+const row = cart.find(i => i.id === id);
+row ? row.qty++ : cart.push({id, qty: 1});
+save(); renderCart();
+toast("به سبد خرید اضافه شد ✓");
+}
+function changeQty(id, d) {
+const row = cart.find(i => i.id === id);
+if (!row) return;
+row.qty += d;
+if (row.qty <= 0) cart = cart.filter(i => i.id !== id);
+save(); renderCart();
+}
+function removeItem(id) { cart = cart.filter(i => i.id !== id); save(); renderCart(); }
+function renderCart() {
+const count = cart.reduce((s, i) => s + i.qty, 0);
+const total = cart.reduce((s, i) => s + i.qty * PRODUCTS.find(p => p.id === i.id).price, 0);
+$("count").textContent = count.toLocaleString("fa-IR");
+$("total").textContent = fmt(total);
+$("items").innerHTML = cart.length ? cart.map(i => {
+const p = PRODUCTS.find(x => x.id === i.id);
+return <div class="item">     <div class="ic" style="background:${p.bg}">${p.emoji}</div>     <div class="nm">${p.name}<div class="price">${fmt(p.price * i.qty)}</div>     <div class="qty"><button data-q="${p.id}" data-d="1">+</button><span>${i.qty.toLocaleString("fa-IR")}</span><button data-q="${p.id}" data-d="-1">−</button></div>     </div>     <button class="rm" data-rm="${p.id}">حذف</button>     </div>;
+}).join("") : <div class="empty" style="padding:60px 0">سبد خرید شما خالی است 🛍️</div>;
+}
+function openCart(open) {
+$("drawer").classList.toggle("show", open);
+$("overlay").classList.toggle("show", open);
+}
+
+// ===== صفحه محصول =====
+let current = null;
+function openProduct(id) {
+const p = PRODUCTS.find(x => x.id === id);
+current = id;
+$("mImg").style.background = p.bg; $("mImg").textContent = p.emoji;
+$("mCat").textContent = p.cat; $("mName").textContent = p.name;
+$("mPrice").textContent = fmt(p.price); $("mDesc").textContent = p.desc;
+$("modal").classList.add("show");
+}
+
+let toastTimer;
+function toast(msg) {
+const t = $("toast"); t.textContent = msg; t.classList.add("show");
+clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("show"), 1600);
+}
+
+// ===== رویدادها =====
+$("cats").addEventListener("click", e => {
+const b = e.target.closest("[data-cat]"); if (!b) return;
+activeCat = b.dataset.cat; renderCats(); renderGrid();
+});
+$("search").addEventListener("input", e => { query = e.target.value; renderGrid(); });
+$("grid").addEventListener("click", e => {
+const a = e.target.closest("[data-add]"), v = e.target.closest("[data-view]");
+if (a) addToCart(+a.dataset.add); else if (v) openProduct(+v.dataset.view);
+});
+$("items").addEventListener("click", e => {
+const q = e.target.closest("[data-q]"), r = e.target.closest("[data-rm]");
+if (q) changeQty(+q.dataset.q, +q.dataset.d);
+if (r) removeItem(+r.dataset.rm);
+});
+$("openCart").onclick = () => openCart(true);
+$("closeCart").onclick = $("overlay").onclick = () => openCart(false);
+$("closeModal").onclick = () => $("modal").classList.remove("show");
+$("modal").addEventListener("click", e => { if (e.target === $("modal")) $("modal").classList.remove("show"); });
+$("mAdd").onclick = () => { addToCart(current); $("modal").classList.remove("show"); };
+document.addEventListener("keydown", e => { if (e.key === "Escape") { openCart(false); $("modal").classList.remove("show"); } });
+$("checkout").onclick = () => {
+if (!cart.length) return toast("سبد خرید خالی است");
+const lines = cart.map(i => { const p = PRODUCTS.find(x => x.id === i.id); return • ${p.name} × ${i.qty}; });
+const total = cart.reduce((s, i) => s + i.qty * PRODUCTS.find(p => p.id === i.id).price, 0);
+const msg = "سلام، می‌خواهم این سفارش را ثبت کنم:\n" + lines.join("\n") + "\nجمع کل: " + fmt(total);
+window.open("https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg), "_blank");
+};
+$("contactForm").addEventListener("submit", e => { e.preventDefault(); e.target.reset(); toast("پیام شما ارسال شد ✓"); });
+$("wa").href = "https://wa.me/" + WHATSAPP;
+
+renderCats(); renderGrid(); renderCart();
+</script>  </body>
+
+</html>  منظورت اینه
