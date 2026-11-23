@@ -1,175 +1,206 @@
 
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>فروشگاه پرمیوم</title>
+<title>ROYAL STORE | فروشگاه لوکس</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
+:root{--gold:#d8b56a;--dark:#0b0b0d;--panel:#17171b;--muted:#aaa}
 *{box-sizing:border-box}
-body{margin:0;font-family:Tahoma,sans-serif;background:#101114;color:#fff}
-header{padding:20px;background:#191a20;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.logo{font-size:23px;color:#e8bd62;font-weight:bold}
-button{cursor:pointer;border:0;border-radius:9px;padding:12px 18px;background:#d9ad50;color:#151515;font-weight:bold}
-input,select,textarea{padding:13px;border:1px solid #444;border-radius:9px;background:#202127;color:white;width:100%;margin:8px 0}
-.hero{text-align:center;padding:65px 20px;background:linear-gradient(120deg,#25201a,#101114)}
-.hero h1{font-size:34px;color:#f2ca75}
-.hero p{color:#ccc;line-height:2}
-.container{max-width:1100px;margin:auto;padding:25px 16px}
-.categories{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
-.categories button{background:#292a30;color:white}
-.categories button.active{background:#d9ad50;color:#111}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.card{background:#1c1d23;border:1px solid #34343a;border-radius:14px;padding:16px;transition:.2s}
-.card:hover{transform:translateY(-5px);border-color:#d9ad50}
-.pic{height:140px;background:#292a30;border-radius:10px;display:grid;place-items:center;font-size:65px}
-.card h3{margin:14px 0 8px}
-.price{color:#edc36b;font-weight:bold;margin:12px 0}
-.card p{color:#bbb;line-height:1.8;font-size:13px}
-.section-title{color:#edc36b;margin:35px 0 20px}
-.cart{background:#1c1d23;padding:20px;border-radius:12px;margin-top:35px}
-.cart-item{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid #444}
-footer{text-align:center;padding:30px;background:#191a20;color:#aaa;margin-top:40px}
-a{color:#edc36b}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--dark);color:#fff;font-family:Vazirmatn,Tahoma,sans-serif}
+button,input{font:inherit}
+button{cursor:pointer}
+header{position:sticky;top:0;z-index:10;background:#101014ed;backdrop-filter:blur(15px);border-bottom:1px solid #ffffff12}
+.nav{max-width:1200px;margin:auto;padding:17px 22px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.logo{font-size:23px;font-weight:800;color:var(--gold);letter-spacing:2px}
+.logo small{display:block;font-size:9px;letter-spacing:5px;color:#aaa;text-align:center}
+.navlinks{display:flex;gap:22px}
+.navlinks a{color:#ddd;text-decoration:none;font-size:13px}
+.navlinks a:hover{color:var(--gold)}
+.goldbtn{background:linear-gradient(135deg,#f2d995,#b58a3c);color:#17130b;border:0;border-radius:8px;padding:11px 18px;font-weight:800}
+.hero{max-width:1200px;margin:28px auto;padding:65px 7%;min-height:380px;border-radius:22px;overflow:hidden;position:relative;display:flex;align-items:center;background:linear-gradient(90deg,#090909 5%,#090909d9 45%,#09090920),url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600') center/cover}
+.hero-content{max-width:520px;position:relative}
+.eyebrow{color:var(--gold);letter-spacing:3px;font-size:12px}
+.hero h1{font-size:clamp(30px,5vw,54px);line-height:1.5;margin:14px 0}
+.hero p{color:#ddd;line-height:2;font-size:14px}
+.hero .goldbtn{margin-top:15px;padding:14px 25px}
+.container{max-width:1200px;margin:auto;padding:25px 22px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:38px 0 20px}
+.section-head h2{margin:0;font-size:25px}
+.section-head p{margin:6px 0 0;color:var(--muted);font-size:12px}
+.goldline{width:48px;height:3px;background:var(--gold);margin-top:12px}
+.categories{display:flex;gap:10px;overflow:auto;padding:8px 0 18px}
+.cat{white-space:nowrap;background:#1c1c21;color:#ddd;border:1px solid #333;padding:10px 18px;border-radius:30px}
+.cat.active,.cat:hover{background:var(--gold);color:#151515;border-color:var(--gold)}
+.search{width:100%;background:#17171b;border:1px solid #34343a;border-radius:10px;padding:14px 17px;color:#fff;outline:none}
+.search:focus{border-color:var(--gold)}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:var(--panel);border:1px solid #ffffff12;border-radius:15px;overflow:hidden;transition:.25s}
+.card:hover{transform:translateY(-6px);border-color:#d8b56a77}
+.product-image{height:205px;position:relative;background:#222;overflow:hidden}
+.product-image img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.card:hover img{transform:scale(1.06)}
+.tag{position:absolute;top:12px;right:12px;background:var(--gold);color:#17130b;padding:5px 10px;border-radius:20px;font-size:10px;font-weight:bold}
+.card-info{padding:15px}
+.card h3{font-size:15px;margin:0 0 8px}
+.desc{font-size:11px;color:#aaa;line-height:1.8;min-height:38px}
+.price{color:var(--gold);font-weight:800;margin:12px 0}
+.card-actions{display:flex;gap:8px}
+.card-actions button{flex:1;padding:10px 5px;border-radius:7px;border:0;font-size:11px}
+.add{background:var(--gold);color:#17130b;font-weight:bold}
+.details{background:#303036;color:#fff}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:45px 0}
+.benefit{background:#17171b;border:1px solid #ffffff12;border-radius:13px;padding:22px;text-align:center}
+.benefit strong{display:block;color:var(--gold);font-size:15px;margin:8px}
+.benefit span{font-size:12px;color:#aaa}
+.cartbox{background:#17171b;border:1px solid #333;border-radius:15px;padding:22px;margin:35px 0}
+.cartrow{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid #333;padding:13px 0;font-size:13px}
+.remove{background:#442629;color:#ffb5b5;border:0;border-radius:6px;padding:7px 10px}
+.total{color:var(--gold);font-size:20px;font-weight:bold;margin:20px 0}
+.contact{background:linear-gradient(135deg,#201d17,#17171b);border:1px solid #6c5730;border-radius:16px;padding:25px;margin:35px 0}
+.contact input,.contact textarea{width:100%;padding:13px;background:#101014;border:1px solid #444;color:#fff;border-radius:8px;margin:7px 0;outline:none}
+.contact textarea{min-height:90px}
+footer{border-top:1px solid #333;text-align:center;padding:30px 15px;color:#999;font-size:12px;line-height:2}
+footer b{color:var(--gold)}
+.empty{text-align:center;color:#aaa;padding:20px}
+@media(max-width:850px){.products{grid-template-columns:repeat(2,1fr)}.navlinks{display:none}.hero{margin:15px 12px;min-height:340px}.benefits{grid-template-columns:1fr}}
+@media(max-width:420px){.products{gap:10px}.product-image{height:145px}.card-info{padding:10px}.card h3{font-size:13px}.hero{padding:35px 7%}.container{padding:18px 12px}}
 </style>
 </head>
 <body>
 
 <header>
-<div class="logo">PREMIUM STORE</div>
-<button onclick="document.getElementById('cart').scrollIntoView({behavior:'smooth'})">🛒 سبد خرید <span id="count">0</span></button>
+<div class="nav">
+<div class="logo">ROYAL STORE<small>PREMIUM SHOPPING</small></div>
+<nav class="navlinks">
+<a href="#home">خانه</a><a href="#shop">محصولات</a><a href="#benefits">خدمات</a><a href="#contact">تماس</a>
+</nav>
+<button class="goldbtn" onclick="document.getElementById('cart').scrollIntoView()">سبد خرید 🛒 <span id="count">۰</span></button>
+</div>
 </header>
 
-<section class="hero">
-<h1>به فروشگاه پرمیوم خوش آمدید</h1>
-<p>تجربه خریدی متفاوت با محصولات منتخب و کیفیت عالی</p>
-<button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">مشاهده محصولات</button>
+<section class="hero" id="home">
+<div class="hero-content">
+<div class="eyebrow">ELEVATE YOUR STYLE</div>
+<h1>انتخابی متفاوت،<br>تجربه‌ای لوکس</h1>
+<p>به دنیای محصولات منتخب و خاص خوش آمدید. کیفیت، زیبایی و تجربه خرید آسان در یک جا.</p>
+<button class="goldbtn" onclick="document.getElementById('shop').scrollIntoView()">مشاهده محصولات ←</button>
+</div>
 </section>
 
-<main class="container" id="shop">
-<h2 class="section-title">محصولات فروشگاه</h2>
-<input id="search" placeholder="جستجوی محصول..." oninput="render()">
+<main class="container">
+<section id="shop">
+<div class="section-head"><div><h2>محصولات منتخب</h2><div class="goldline"></div><p>انتخاب‌هایی برای سلیقه‌های خاص</p></div></div>
+<input class="search" id="search" placeholder="نام محصول موردنظر را جستجو کن..." oninput="render()">
 <div class="categories" id="categories"></div>
 <div class="products" id="products"></div>
-
-<section class="cart" id="cart">
-<h2 class="section-title">سبد خرید</h2>
-<div id="cartItems">سبد خرید شما خالی است.</div>
-<h3>مجموع: <span id="total">۰</span> تومان</h3>
-<button onclick="checkout()">ثبت سفارش در واتساپ</button>
 </section>
 
-<section>
-<h2 class="section-title">تماس با ما</h2>
-<p>برای راهنمایی و ثبت سفارش با ما در ارتباط باشید.</p>
+<section class="benefits" id="benefits">
+<div class="benefit"><div>✦</div><strong>محصولات منتخب</strong><span>انتخاب محصولات باکیفیت</span></div>
+<div class="benefit"><div>♧</div><strong>خرید آسان</strong><span>فرآیند ساده ثبت سفارش</span></div>
+<div class="benefit"><div>☎</div><strong>پشتیبانی مشتریان</strong><span>ارتباط مستقیم با فروشگاه</span></div>
+</section>
+
+<section class="cartbox" id="cart">
+<h2>سبد خرید شما</h2>
+<div id="cartItems" class="empty">هنوز محصولی انتخاب نکرده‌اید.</div>
+<div class="total">مجموع: <span id="total">۰</span> تومان</div>
+<button class="goldbtn" onclick="checkout()">ثبت سفارش از طریق واتساپ</button>
+</section>
+
+<section class="contact" id="contact">
+<h2>با ما در ارتباط باشید</h2>
+<p style="color:#aaa;font-size:13px">برای پرسش یا راهنمایی، پیام خود را ارسال کنید.</p>
 <input id="customer" placeholder="نام شما">
 <input id="phone" placeholder="شماره تماس">
 <textarea id="message" placeholder="پیام شما"></textarea>
-<button onclick="contact()">ارسال پیام در واتساپ</button>
+<button class="goldbtn" onclick="contactUs()">ارسال پیام</button>
 </section>
 </main>
 
 <footer>
+<div class="logo">ROYAL STORE</div>
+<p>تجربه‌ای متفاوت از خرید آنلاین</p>
 <p>© تمامی حقوق این فروشگاه محفوظ است.</p>
-<p>PREMIUM STORE</p>
 </footer>
 
 <script>
 const WHATSAPP="989120000000";
 
 const items=[
-{id:1,name:"ساعت هوشمند",cat:"دیجیتال",price:2500000,emoji:"⌚",desc:"ساعت زیبا و مدرن"},
-{id:2,name:"هدفون بی سیم",cat:"دیجیتال",price:1200000,emoji:"🎧",desc:"صدای شفاف و باکیفیت"},
-{id:3,name:"عینک آفتابی",cat:"مد و پوشاک",price:850000,emoji:"🕶️",desc:"طراحی شیک و جذاب"},
-{id:4,name:"کیف دستی",cat:"مد و پوشاک",price:1450000,emoji:"👜",desc:"مناسب استفاده روزانه"},
-{id:5,name:"کفش اسپرت",cat:"مد و پوشاک",price:1900000,emoji:"👟",desc:"راحت و مناسب پیاده روی"},
-{id:6,name:"دوربین عکاسی",cat:"دیجیتال",price:8500000,emoji:"📷",desc:"ثبت لحظات زیبا"},
-{id:7,name:"عطر مردانه",cat:"زیبایی",price:1100000,emoji:"🧴",desc:"رایحه جذاب و ماندگار"},
-{id:8,name:"عطر زنانه",cat:"زیبایی",price:1350000,emoji:"🌸",desc:"رایحه لطیف و دلنشین"},
-{id:9,name:"چراغ مطالعه",cat:"خانه",price:650000,emoji:"💡",desc:"نور مناسب مطالعه"},
-{id:10,name:"ماگ سرامیکی",cat:"خانه",price:250000,emoji:"☕",desc:"طراحی زیبا و کاربردی"},
-{id:11,name:"عینک هوشمند",cat:"دیجیتال",price:3200000,emoji:"🥽",desc:"طراحی مدرن"},
-{id:12,name:"کوله پشتی",cat:"مد و پوشاک",price:980000,emoji:"🎒",desc:"جادار و مقاوم"}
+{id:1,name:"ساعت کلاسیک",cat:"دیجیتال",price:2500000,img:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600",desc:"طراحی شیک و مناسب استایل روزانه"},
+{id:2,name:"هدفون بی‌سیم",cat:"دیجیتال",price:1200000,img:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600",desc:"صدای باکیفیت و طراحی مدرن"},
+{id:3,name:"کفش اسپرت",cat:"مد و پوشاک",price:1900000,img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",desc:"راحتی و زیبایی برای هر روز"},
+{id:4,name:"کیف دستی",cat:"مد و پوشاک",price:1450000,img:"https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600",desc:"ظاهری زیبا و کاربردی"},
+{id:5,name:"دوربین عکاسی",cat:"دیجیتال",price:8500000,img:"https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600",desc:"برای ثبت لحظه‌های ماندگار"},
+{id:6,name:"عینک آفتابی",cat:"مد و پوشاک",price:850000,img:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600",desc:"طراحی جذاب و مدرن"},
+{id:7,name:"عطر لوکس",cat:"زیبایی",price:1100000,img:"https://images.unsplash.com/photo-1541643600914-78b084683601?w=600",desc:"رایحه‌ای خاص و ماندگار"},
+{id:8,name:"چراغ دکوراتیو",cat:"خانه",price:650000,img:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600",desc:"زیبایی و نور برای فضای خانه"}
 ];
 
 let cart=[];
 let category="همه";
-
 const money=n=>n.toLocaleString("fa-IR");
 
 function renderCategories(){
-let cats=["همه",...new Set(items.map(x=>x.cat))];
+let cats=["همه",...new Set(items.map(p=>p.cat))];
 document.getElementById("categories").innerHTML=cats.map(c=>
-`<button class="${category===c?'active':''}" onclick="setCategory('${c}')">${c}</button>`
+`<button class="cat ${category===c?'active':''}" onclick="setCategory('${c}')">${c}</button>`
 ).join("");
 }
-
-function setCategory(c){
-category=c;
-render();
-}
-
+function setCategory(c){category=c;render()}
 function render(){
 renderCategories();
-let q=document.getElementById("search").value.trim().toLowerCase();
+let q=document.getElementById("search").value.toLowerCase();
 let filtered=items.filter(p=>(category==="همه"||p.cat===category)&&p.name.toLowerCase().includes(q));
 document.getElementById("products").innerHTML=filtered.map(p=>`
-<article class="card">
-<div class="pic">${p.emoji}</div>
-<h3>${p.name}</h3>
-<p>${p.desc}</p>
+<div class="card">
+<div class="product-image"><img src="${p.img}" alt="${p.name}" loading="lazy"><span class="tag">منتخب</span></div>
+<div class="card-info"><h3>${p.name}</h3><div class="desc">${p.desc}</div>
 <div class="price">${money(p.price)} تومان</div>
-<button onclick="add(${p.id})">افزودن به سبد خرید</button>
-</article>
-`).join("")||"<p>محصولی پیدا نشد.</p>";
+<div class="card-actions"><button class="add" onclick="add(${p.id})">افزودن به سبد</button></div></div>
+</div>`).join("")||'<p class="empty">محصولی پیدا نشد.</p>';
 renderCart();
 }
-
 function add(id){
-let found=cart.find(x=>x.id===id);
-if(found)found.qty++;
-else cart.push({id,qty:1});
+let x=cart.find(p=>p.id===id);
+if(x)x.qty++;else cart.push({id,qty:1});
 renderCart();
 }
-
-function removeItem(id){
-cart=cart.filter(x=>x.id!==id);
-renderCart();
-}
-
+function removeItem(id){cart=cart.filter(p=>p.id!==id);renderCart()}
 function renderCart(){
-let count=cart.reduce((s,x)=>s+x.qty,0);
-let total=cart.reduce((s,x)=>s+items.find(p=>p.id===x.id).price*x.qty,0);
+let count=cart.reduce((s,p)=>s+p.qty,0);
+let total=cart.reduce((s,p)=>s+items.find(x=>x.id===p.id).price*p.qty,0);
 document.getElementById("count").textContent=money(count);
 document.getElementById("total").textContent=money(total);
 document.getElementById("cartItems").innerHTML=cart.length?cart.map(x=>{
 let p=items.find(z=>z.id===x.id);
-return `<div class="cart-item"><span>${p.name} × ${x.qty}</span><span>${money(p.price*x.qty)} تومان <button onclick="removeItem(${p.id})">حذف</button></span></div>`;
-}).join(""):"سبد خرید شما خالی است.";
+return `<div class="cartrow"><span>${p.name} × ${x.qty}</span><span>${money(p.price*x.qty)} تومان <button class="remove" onclick="removeItem(${p.id})">حذف</button></span></div>`;
+}).join(""):'<div class="empty">سبد خرید شما خالی است.</div>';
 }
-
 function checkout(){
-if(!cart.length){alert("سبد خرید خالی است");return;}
-let text="سلام، می‌خواهم این محصولات را سفارش بدهم:\n";
-cart.forEach(x=>{
-let p=items.find(z=>z.id===x.id);
-text+=`${p.name} - تعداد ${x.qty}\n`;
-});
+if(!cart.length){alert("سبد خرید خالی است.");return}
+let msg="سلام، برای سفارش این محصولات پیام می‌دهم:\n";
+cart.forEach(x=>{let p=items.find(z=>z.id===x.id);msg+=p.name+" - تعداد: "+x.qty+"\n"});
 let total=cart.reduce((s,x)=>s+items.find(p=>p.id===x.id).price*x.qty,0);
-text+="مجموع: "+money(total)+" تومان";
-window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(text),"_blank");
+msg+="مجموع: "+money(total)+" تومان";
+window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(msg),"_blank");
 }
-
-function contact(){
+function contactUs(){
 let name=document.getElementById("customer").value.trim();
 let phone=document.getElementById("phone").value.trim();
-let msg=document.getElementById("message").value.trim();
-if(!name||!phone||!msg){alert("لطفاً همه فیلدها را پر کنید");return;}
-let text=`سلام، نام: ${name}\nشماره: ${phone}\nپیام: ${msg}`;
-window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(text),"_blank");
+let message=document.getElementById("message").value.trim();
+if(!name||!phone||!message){alert("لطفاً همه قسمت‌ها را پر کنید.");return}
+let msg="نام: "+name+"\nشماره: "+phone+"\nپیام: "+message;
+window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(msg),"_blank");
 }
-
 render();
 </script>
 </body>
 </html>
+
