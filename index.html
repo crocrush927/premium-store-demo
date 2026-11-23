@@ -1,1 +1,175 @@
-# premium-store-demo
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>فروشگاه پرمیوم</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Tahoma,sans-serif;background:#101114;color:#fff}
+header{padding:20px;background:#191a20;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.logo{font-size:23px;color:#e8bd62;font-weight:bold}
+button{cursor:pointer;border:0;border-radius:9px;padding:12px 18px;background:#d9ad50;color:#151515;font-weight:bold}
+input,select,textarea{padding:13px;border:1px solid #444;border-radius:9px;background:#202127;color:white;width:100%;margin:8px 0}
+.hero{text-align:center;padding:65px 20px;background:linear-gradient(120deg,#25201a,#101114)}
+.hero h1{font-size:34px;color:#f2ca75}
+.hero p{color:#ccc;line-height:2}
+.container{max-width:1100px;margin:auto;padding:25px 16px}
+.categories{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+.categories button{background:#292a30;color:white}
+.categories button.active{background:#d9ad50;color:#111}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card{background:#1c1d23;border:1px solid #34343a;border-radius:14px;padding:16px;transition:.2s}
+.card:hover{transform:translateY(-5px);border-color:#d9ad50}
+.pic{height:140px;background:#292a30;border-radius:10px;display:grid;place-items:center;font-size:65px}
+.card h3{margin:14px 0 8px}
+.price{color:#edc36b;font-weight:bold;margin:12px 0}
+.card p{color:#bbb;line-height:1.8;font-size:13px}
+.section-title{color:#edc36b;margin:35px 0 20px}
+.cart{background:#1c1d23;padding:20px;border-radius:12px;margin-top:35px}
+.cart-item{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid #444}
+footer{text-align:center;padding:30px;background:#191a20;color:#aaa;margin-top:40px}
+a{color:#edc36b}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">PREMIUM STORE</div>
+<button onclick="document.getElementById('cart').scrollIntoView({behavior:'smooth'})">🛒 سبد خرید <span id="count">0</span></button>
+</header>
+
+<section class="hero">
+<h1>به فروشگاه پرمیوم خوش آمدید</h1>
+<p>تجربه خریدی متفاوت با محصولات منتخب و کیفیت عالی</p>
+<button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">مشاهده محصولات</button>
+</section>
+
+<main class="container" id="shop">
+<h2 class="section-title">محصولات فروشگاه</h2>
+<input id="search" placeholder="جستجوی محصول..." oninput="render()">
+<div class="categories" id="categories"></div>
+<div class="products" id="products"></div>
+
+<section class="cart" id="cart">
+<h2 class="section-title">سبد خرید</h2>
+<div id="cartItems">سبد خرید شما خالی است.</div>
+<h3>مجموع: <span id="total">۰</span> تومان</h3>
+<button onclick="checkout()">ثبت سفارش در واتساپ</button>
+</section>
+
+<section>
+<h2 class="section-title">تماس با ما</h2>
+<p>برای راهنمایی و ثبت سفارش با ما در ارتباط باشید.</p>
+<input id="customer" placeholder="نام شما">
+<input id="phone" placeholder="شماره تماس">
+<textarea id="message" placeholder="پیام شما"></textarea>
+<button onclick="contact()">ارسال پیام در واتساپ</button>
+</section>
+</main>
+
+<footer>
+<p>© تمامی حقوق این فروشگاه محفوظ است.</p>
+<p>PREMIUM STORE</p>
+</footer>
+
+<script>
+const WHATSAPP="989120000000";
+
+const items=[
+{id:1,name:"ساعت هوشمند",cat:"دیجیتال",price:2500000,emoji:"⌚",desc:"ساعت زیبا و مدرن"},
+{id:2,name:"هدفون بی سیم",cat:"دیجیتال",price:1200000,emoji:"🎧",desc:"صدای شفاف و باکیفیت"},
+{id:3,name:"عینک آفتابی",cat:"مد و پوشاک",price:850000,emoji:"🕶️",desc:"طراحی شیک و جذاب"},
+{id:4,name:"کیف دستی",cat:"مد و پوشاک",price:1450000,emoji:"👜",desc:"مناسب استفاده روزانه"},
+{id:5,name:"کفش اسپرت",cat:"مد و پوشاک",price:1900000,emoji:"👟",desc:"راحت و مناسب پیاده روی"},
+{id:6,name:"دوربین عکاسی",cat:"دیجیتال",price:8500000,emoji:"📷",desc:"ثبت لحظات زیبا"},
+{id:7,name:"عطر مردانه",cat:"زیبایی",price:1100000,emoji:"🧴",desc:"رایحه جذاب و ماندگار"},
+{id:8,name:"عطر زنانه",cat:"زیبایی",price:1350000,emoji:"🌸",desc:"رایحه لطیف و دلنشین"},
+{id:9,name:"چراغ مطالعه",cat:"خانه",price:650000,emoji:"💡",desc:"نور مناسب مطالعه"},
+{id:10,name:"ماگ سرامیکی",cat:"خانه",price:250000,emoji:"☕",desc:"طراحی زیبا و کاربردی"},
+{id:11,name:"عینک هوشمند",cat:"دیجیتال",price:3200000,emoji:"🥽",desc:"طراحی مدرن"},
+{id:12,name:"کوله پشتی",cat:"مد و پوشاک",price:980000,emoji:"🎒",desc:"جادار و مقاوم"}
+];
+
+let cart=[];
+let category="همه";
+
+const money=n=>n.toLocaleString("fa-IR");
+
+function renderCategories(){
+let cats=["همه",...new Set(items.map(x=>x.cat))];
+document.getElementById("categories").innerHTML=cats.map(c=>
+`<button class="${category===c?'active':''}" onclick="setCategory('${c}')">${c}</button>`
+).join("");
+}
+
+function setCategory(c){
+category=c;
+render();
+}
+
+function render(){
+renderCategories();
+let q=document.getElementById("search").value.trim().toLowerCase();
+let filtered=items.filter(p=>(category==="همه"||p.cat===category)&&p.name.toLowerCase().includes(q));
+document.getElementById("products").innerHTML=filtered.map(p=>`
+<article class="card">
+<div class="pic">${p.emoji}</div>
+<h3>${p.name}</h3>
+<p>${p.desc}</p>
+<div class="price">${money(p.price)} تومان</div>
+<button onclick="add(${p.id})">افزودن به سبد خرید</button>
+</article>
+`).join("")||"<p>محصولی پیدا نشد.</p>";
+renderCart();
+}
+
+function add(id){
+let found=cart.find(x=>x.id===id);
+if(found)found.qty++;
+else cart.push({id,qty:1});
+renderCart();
+}
+
+function removeItem(id){
+cart=cart.filter(x=>x.id!==id);
+renderCart();
+}
+
+function renderCart(){
+let count=cart.reduce((s,x)=>s+x.qty,0);
+let total=cart.reduce((s,x)=>s+items.find(p=>p.id===x.id).price*x.qty,0);
+document.getElementById("count").textContent=money(count);
+document.getElementById("total").textContent=money(total);
+document.getElementById("cartItems").innerHTML=cart.length?cart.map(x=>{
+let p=items.find(z=>z.id===x.id);
+return `<div class="cart-item"><span>${p.name} × ${x.qty}</span><span>${money(p.price*x.qty)} تومان <button onclick="removeItem(${p.id})">حذف</button></span></div>`;
+}).join(""):"سبد خرید شما خالی است.";
+}
+
+function checkout(){
+if(!cart.length){alert("سبد خرید خالی است");return;}
+let text="سلام، می‌خواهم این محصولات را سفارش بدهم:\n";
+cart.forEach(x=>{
+let p=items.find(z=>z.id===x.id);
+text+=`${p.name} - تعداد ${x.qty}\n`;
+});
+let total=cart.reduce((s,x)=>s+items.find(p=>p.id===x.id).price*x.qty,0);
+text+="مجموع: "+money(total)+" تومان";
+window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(text),"_blank");
+}
+
+function contact(){
+let name=document.getElementById("customer").value.trim();
+let phone=document.getElementById("phone").value.trim();
+let msg=document.getElementById("message").value.trim();
+if(!name||!phone||!msg){alert("لطفاً همه فیلدها را پر کنید");return;}
+let text=`سلام، نام: ${name}\nشماره: ${phone}\nپیام: ${msg}`;
+window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(text),"_blank");
+}
+
+render();
+</script>
+</body>
+</html>
