@@ -6,72 +6,296 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ROYAL STORE | Luxury Shopping</title>
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
-:root{--gold:#dfbd78;--bg:#09090b;--panel:#17171b;--muted:#aaa}
+
+:root {
+--gold:#dfbd78;
+--bg:#09090b;
+--panel:#17171b;
+--muted:#aaa;
+}
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:white;font-family:Vazirmatn,Tahoma,sans-serif}
-button,input{font:inherit}
+body{
+margin:0;
+background:var(--bg);
+color:white;
+font-family:Vazirmatn,Tahoma,sans-serif;
+}
+button,input,textarea{font:inherit}
 button{cursor:pointer}
-header{position:sticky;top:0;z-index:10;background:#101014f2;border-bottom:1px solid #ffffff18;backdrop-filter:blur(15px)}
-.nav{max-width:1200px;margin:auto;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.logo{font-size:23px;font-weight:800;color:var(--gold);letter-spacing:2px}
-.logo small{display:block;font-size:9px;color:#aaa;letter-spacing:5px;text-align:center}
+
+header{
+position:sticky;
+top:0;
+z-index:10;
+background:#101014f2;
+border-bottom:1px solid #ffffff18;
+backdrop-filter:blur(15px);
+}
+
+.nav{
+max-width:1200px;
+margin:auto;
+padding:16px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:12px;
+}
+
+.logo{
+font-size:23px;
+font-weight:800;
+color:var(--gold);
+letter-spacing:2px;
+}
+
+.logo small{
+display:block;
+font-size:9px;
+color:#aaa;
+letter-spacing:5px;
+text-align:center;
+}
+
 .navlinks{display:flex;gap:20px}
-.navlinks a{color:#ddd;text-decoration:none;font-size:13px}
-.goldbtn{background:linear-gradient(135deg,#f5dfa5,#bd9145);color:#17130b;border:0;border-radius:9px;padding:12px 19px;font-weight:800}
-.hero{max-width:1200px;margin:25px auto;padding:70px 7%;min-height:410px;border-radius:22px;display:flex;align-items:center;background:linear-gradient(90deg,#090909 5%,#090909df 48%,#09090920),url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600') center/cover}
+.navlinks a{
+color:#ddd;
+text-decoration:none;
+font-size:13px;
+}
+
+.goldbtn{
+background:linear-gradient(135deg,#f5dfa5,#bd9145);
+color:#17130b;
+border:0;
+border-radius:9px;
+padding:12px 19px;
+font-weight:800;
+}
+
+.hero{
+max-width:1200px;
+margin:25px auto;
+padding:70px 7%;
+min-height:410px;
+border-radius:22px;
+display:flex;
+align-items:center;
+background:
+linear-gradient(90deg,#090909 5%,#090909df 48%,#09090920),
+url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600')
+center/cover;
+}
+
 .hero-content{max-width:520px}
 .eyebrow{color:var(--gold);letter-spacing:4px;font-size:12px}
 .hero h1{font-size:clamp(32px,5vw,55px);line-height:1.5;margin:15px 0}
 .hero p{color:#ddd;line-height:2;font-size:14px}
+
 .container{max-width:1200px;margin:auto;padding:20px}
 .section-head{margin:40px 0 20px}
 .section-head h2{font-size:25px;margin:0}
 .section-head p{color:var(--muted);font-size:12px}
 .goldline{width:55px;height:3px;background:var(--gold);margin-top:12px}
-.search{width:100%;padding:14px;background:#17171b;border:1px solid #444;border-radius:10px;color:white;outline:none}
+
+.search{
+width:100%;
+padding:14px;
+background:#17171b;
+border:1px solid #444;
+border-radius:10px;
+color:white;
+outline:none;
+}
+
 .categories{display:flex;gap:10px;overflow:auto;padding:17px 0}
-.cat{white-space:nowrap;background:#1c1c21;color:#ddd;border:1px solid #383838;padding:10px 18px;border-radius:30px}
+.cat{
+white-space:nowrap;
+background:#1c1c21;
+color:#ddd;
+border:1px solid #383838;
+padding:10px 18px;
+border-radius:30px;
+}
 .cat.active,.cat:hover{background:var(--gold);color:#111}
-.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.card{background:var(--panel);border:1px solid #ffffff16;border-radius:15px;overflow:hidden;transition:.3s}
+
+.products{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+}
+
+.card{
+background:var(--panel);
+border:1px solid #ffffff16;
+border-radius:15px;
+overflow:hidden;
+transition:.3s;
+}
+
 .card:hover{transform:translateY(-7px);border-color:var(--gold)}
-.product-image{height:220px;position:relative;overflow:hidden;background:#222}
-.product-image img{width:100%;height:100%;object-fit:cover;transition:.5s}
-.card:hover img{transform:scale(1.08)}
-.tag{position:absolute;top:12px;right:12px;background:var(--gold);color:#111;padding:5px 11px;border-radius:20px;font-size:10px;font-weight:bold}
+
+.product-image{
+height:220px;
+position:relative;
+overflow:hidden;
+background:linear-gradient(135deg,#29251c,#111);
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.product-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.5s;
+}
+
+.card:hover .product-image img{transform:scale(1.08)}
+
+.image-fallback:after{
+content:"ROYAL STORE";
+color:var(--gold);
+font-size:22px;
+font-weight:800;
+letter-spacing:3px;
+position:absolute;
+}
+
+.tag{
+position:absolute;
+top:12px;
+right:12px;
+background:var(--gold);
+color:#111;
+padding:5px 11px;
+border-radius:20px;
+font-size:10px;
+font-weight:bold;
+}
+
 .card-info{padding:15px}
 .card h3{font-size:15px;margin:0 0 8px}
 .desc{font-size:11px;color:#aaa;line-height:1.8;min-height:38px}
 .price{color:var(--gold);font-weight:800;margin:12px 0}
-.add{width:100%;padding:11px;border:0;border-radius:8px;background:var(--gold);color:#17130b;font-weight:bold}
-.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:45px 0}
-.benefit,.cartbox{background:var(--panel);border:1px solid #ffffff16;border-radius:14px;padding:22px;text-align:center}
+.add{
+width:100%;
+padding:11px;
+border:0;
+border-radius:8px;
+background:var(--gold);
+color:#17130b;
+font-weight:bold;
+}
+
+.benefits{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+margin:45px 0;
+}
+
+.benefit,.cartbox{
+background:var(--panel);
+border:1px solid #ffffff16;
+border-radius:14px;
+padding:22px;
+text-align:center;
+}
+
 .benefit strong{display:block;color:var(--gold);margin:9px}
 .benefit span{font-size:12px;color:#aaa}
+
 .cartbox{margin:35px 0;text-align:right}
-.cartrow{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid #333;padding:13px 0;font-size:13px}
-.remove{background:#442629;color:#ffb5b5;border:0;border-radius:6px;padding:7px 10px}
+.cartrow{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+border-bottom:1px solid #333;
+padding:13px 0;
+font-size:13px;
+}
+
+.remove{
+background:#442629;
+color:#ffb5b5;
+border:0;
+border-radius:6px;
+padding:7px 10px;
+}
+
 .total{color:var(--gold);font-size:20px;font-weight:bold;margin:20px 0}
 .empty{text-align:center;color:#aaa;padding:20px}
-.contact{background:linear-gradient(135deg,#201d17,#17171b);border:1px solid #6c5730;border-radius:16px;padding:25px;margin:35px 0}
-.contact input,.contact textarea{width:100%;padding:13px;background:#101014;border:1px solid #444;color:white;border-radius:8px;margin:7px 0}
+
+.contact{
+background:linear-gradient(135deg,#201d17,#17171b);
+border:1px solid #6c5730;
+border-radius:16px;
+padding:25px;
+margin:35px 0;
+}
+
+.contact input,.contact textarea{
+width:100%;
+padding:13px;
+background:#101014;
+border:1px solid #444;
+color:white;
+border-radius:8px;
+margin:7px 0;
+}
+
 .contact textarea{min-height:90px}
-footer{text-align:center;padding:30px;color:#999;border-top:1px solid #333;font-size:12px}
-@media(max-width:850px){.products{grid-template-columns:repeat(2,1fr)}.navlinks{display:none}.benefits{grid-template-columns:1fr}.hero{margin:12px;min-height:340px}}
-@media(max-width:420px){.products{gap:10px}.product-image{height:155px}.card-info{padding:10px}.container{padding:14px}}
+
+footer{
+text-align:center;
+padding:30px;
+color:#999;
+border-top:1px solid #333;
+font-size:12px;
+}
+
+@media(max-width:850px){
+.products{grid-template-columns:repeat(2,1fr)}
+.navlinks{display:none}
+.benefits{grid-template-columns:1fr}
+.hero{margin:12px;min-height:340px}
+}
+
+@media(max-width:420px){
+.products{gap:10px}
+.product-image{height:155px}
+.card-info{padding:10px}
+.container{padding:14px}
+}
 </style>
 </head>
+
 <body>
+
 <header>
 <div class="nav">
-<div class="logo">ROYAL STORE<small>PREMIUM SHOPPING</small></div>
+<div class="logo">ROYAL STORE
+<small>PREMIUM SHOPPING</small>
+</div>
+
 <nav class="navlinks">
-<a href="#home">خانه</a><a href="#shop">محصولات</a><a href="#benefits">خدمات</a><a href="#contact">تماس</a>
+<a href="#home">خانه</a>
+<a href="#shop">محصولات</a>
+<a href="#benefits">خدمات</a>
+<a href="#contact">تماس</a>
 </nav>
-<button class="goldbtn" onclick="document.getElementById('cart').scrollIntoView()">سبد خرید 🛒 <span id="count">۰</span></button>
+
+<button class="goldbtn" onclick="document.getElementById('cart').scrollIntoView()">
+سبد خرید 🛒 <span id="count">۰</span>
+</button>
 </div>
 </header>
 
@@ -80,25 +304,45 @@ footer{text-align:center;padding:30px;color:#999;border-top:1px solid #333;font-
 <div class="eyebrow">ELEVATE YOUR STYLE</div>
 <h1>انتخابی متفاوت،<br>تجربه‌ای لوکس</h1>
 <p>به دنیای محصولات منتخب و خاص خوش آمدید. کیفیت، زیبایی و تجربه خرید آسان در یک جا.</p>
-<button class="goldbtn" onclick="document.getElementById('shop').scrollIntoView()">مشاهده محصولات ←</button>
+<button class="goldbtn" onclick="document.getElementById('shop').scrollIntoView()">
+مشاهده محصولات ←
+</button>
 </div>
 </section>
 
 <main class="container">
+
 <section id="shop">
 <div class="section-head">
-<h2>محصولات منتخب</h2><div class="goldline"></div>
+<h2>محصولات منتخب</h2>
+<div class="goldline"></div>
 <p>انتخاب‌هایی برای سلیقه‌های خاص</p>
 </div>
+
 <input class="search" id="search" placeholder="نام محصول را جستجو کن..." oninput="render()">
+
 <div class="categories" id="categories"></div>
 <div class="products" id="products"></div>
 </section>
 
 <section class="benefits" id="benefits">
-<div class="benefit"><div>✦</div><strong>محصولات منتخب</strong><span>انتخاب محصولات باکیفیت</span></div>
-<div class="benefit"><div>♧</div><strong>خرید آسان</strong><span>فرآیند ساده ثبت سفارش</span></div>
-<div class="benefit"><div>☎</div><strong>پشتیبانی مشتریان</strong><span>ارتباط مستقیم با فروشگاه</span></div>
+<div class="benefit">
+<div>✦</div>
+<strong>محصولات منتخب</strong>
+<span>انتخاب محصولات باکیفیت</span>
+</div>
+
+<div class="benefit">
+<div>♧</div>
+<strong>خرید آسان</strong>
+<span>فرآیند ساده ثبت سفارش</span>
+</div>
+
+<div class="benefit">
+<div>☎</div>
+<strong>پشتیبانی مشتریان</strong>
+<span>ارتباط مستقیم با فروشگاه</span>
+</div>
 </section>
 
 <section class="cartbox" id="cart">
@@ -116,6 +360,7 @@ footer{text-align:center;padding:30px;color:#999;border-top:1px solid #333;font-
 <textarea id="message" placeholder="پیام شما"></textarea>
 <button class="goldbtn" onclick="contactUs()">ارسال پیام</button>
 </section>
+
 </main>
 
 <footer>
@@ -125,6 +370,7 @@ footer{text-align:center;padding:30px;color:#999;border-top:1px solid #333;font-
 </footer>
 
 <script>
+
 const WHATSAPP="989120000000";
 
 const items=[
@@ -140,63 +386,131 @@ const items=[
 
 let cart=[];
 let category="همه";
+
 const money=n=>n.toLocaleString("fa-IR");
 
 function renderCategories(){
 let cats=["همه",...new Set(items.map(p=>p.cat))];
+
 document.getElementById("categories").innerHTML=cats.map(c=>
 `<button class="cat ${category===c?'active':''}" onclick="setCategory('${c}')">${c}</button>`
 ).join("");
 }
-function setCategory(c){category=c;render()}
+
+function setCategory(c){
+category=c;
+render();
+}
+
 function render(){
 renderCategories();
+
 let q=document.getElementById("search").value.toLowerCase();
-let filtered=items.filter(p=>(category==="همه"||p.cat===category)&&p.name.toLowerCase().includes(q));
+
+let filtered=items.filter(p=>
+(category==="همه"||p.cat===category)&&p.name.toLowerCase().includes(q)
+);
+
 document.getElementById("products").innerHTML=filtered.map(p=>`
 <div class="card">
-<div class="product-image"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
-<div class="card-info"><h3>${p.name}</h3><div class="desc">${p.desc}</div>
+<div class="product-image">
+<img
+src="${p.img}"
+alt="${p.name}"
+loading="lazy"
+referrerpolicy="no-referrer"
+onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('image-fallback');"
+>
+</div>
+
+<div class="card-info">
+<h3>${p.name}</h3>
+<div class="desc">${p.desc}</div>
 <div class="price">${money(p.price)} تومان</div>
-<div class="card-actions"><button class="add" onclick="add(${p.id})">افزودن به سبد</button></div></div>
-</div>`).join("")||'<p class="empty">محصولی پیدا نشد.</p>';
+<button class="add" onclick="add(${p.id})">افزودن به سبد</button>
+</div>
+</div>
+`).join("")||'<p class="empty">محصولی پیدا نشد.</p>';
+
 renderCart();
 }
+
 function add(id){
 let x=cart.find(p=>p.id===id);
-if(x)x.qty++;else cart.push({id,qty:1});
+if(x)x.qty++;
+else cart.push({id,qty:1});
 renderCart();
 }
-function removeItem(id){cart=cart.filter(p=>p.id!==id);renderCart()}
+
+function removeItem(id){
+cart=cart.filter(p=>p.id!==id);
+renderCart();
+}
+
 function renderCart(){
 let count=cart.reduce((s,p)=>s+p.qty,0);
-let total=cart.reduce((s,p)=>s+items.find(x=>x.id===p.id).price*p.qty,0);
+
+let total=cart.reduce((s,p)=>
+s+items.find(x=>x.id===p.id).price*p.qty,0);
+
 document.getElementById("count").textContent=money(count);
 document.getElementById("total").textContent=money(total);
-document.getElementById("cartItems").innerHTML=cart.length?cart.map(x=>{
+
+document.getElementById("cartItems").innerHTML=cart.length?
+cart.map(x=>{
 let p=items.find(z=>z.id===x.id);
-return `<div class="cartrow"><span>${p.name} × ${x.qty}</span><span>${money(p.price*x.qty)} تومان <button class="remove" onclick="removeItem(${p.id})">حذف</button></span></div>`;
-}).join(""):'<div class="empty">سبد خرید شما خالی است.</div>';
+
+return `<div class="cartrow">
+<span>${p.name} × ${x.qty}</span>
+<span>${money(p.price*x.qty)} تومان
+<button class="remove" onclick="removeItem(${p.id})">حذف</button>
+</span>
+</div>`;
+}).join("")
+:'<div class="empty">سبد خرید شما خالی است.</div>';
 }
+
 function checkout(){
-if(!cart.length){alert("سبد خرید خالی است.");return}
+if(!cart.length){
+alert("سبد خرید خالی است.");
+return;
+}
+
 let msg="سلام، برای سفارش این محصولات پیام می‌دهم:\n";
-cart.forEach(x=>{let p=items.find(z=>z.id===x.id);msg+=p.name+" - تعداد: "+x.qty+"\n"});
-let total=cart.reduce((s,x)=>s+items.find(p=>p.id===x.id).price*x.qty,0);
+
+cart.forEach(x=>{
+let p=items.find(z=>z.id===x.id);
+msg+=p.name+" - تعداد: "+x.qty+"\n";
+});
+
+let total=cart.reduce((s,x)=>
+s+items.find(p=>p.id===x.id).price*x.qty,0);
+
 msg+="مجموع: "+money(total)+" تومان";
+
 window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(msg),"_blank");
 }
+
 function contactUs(){
 let name=document.getElementById("customer").value.trim();
 let phone=document.getElementById("phone").value.trim();
 let message=document.getElementById("message").value.trim();
-if(!name||!phone||!message){alert("لطفاً همه قسمت‌ها را پر کنید.");return}
+
+if(!name||!phone||!message){
+alert("لطفاً همه قسمت‌ها را پر کنید.");
+return;
+}
+
 let msg="نام: "+name+"\nشماره: "+phone+"\nپیام: "+message;
+
 window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(msg),"_blank");
 }
+
 render();
+
 </script>
 </body>
 </html>
+
 
 
