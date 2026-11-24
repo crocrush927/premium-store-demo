@@ -4,513 +4,232 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ROYAL STORE | Luxury Shopping</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROYAL STORE | فروشگاه لوکس</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
-
-:root {
---gold:#dfbd78;
---bg:#09090b;
---panel:#17171b;
---muted:#aaa;
-}
-
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-margin:0;
-background:var(--bg);
-color:white;
-font-family:Vazirmatn,Tahoma,sans-serif;
-}
-button,input,textarea{font:inherit}
-button{cursor:pointer}
-
-header{
-position:sticky;
-top:0;
-z-index:10;
-background:#101014f2;
-border-bottom:1px solid #ffffff18;
-backdrop-filter:blur(15px);
-}
-
-.nav{
-max-width:1200px;
-margin:auto;
-padding:16px 20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:12px;
-}
-
-.logo{
-font-size:23px;
-font-weight:800;
-color:var(--gold);
-letter-spacing:2px;
-}
-
-.logo small{
-display:block;
-font-size:9px;
-color:#aaa;
-letter-spacing:5px;
-text-align:center;
-}
-
-.navlinks{display:flex;gap:20px}
-.navlinks a{
-color:#ddd;
-text-decoration:none;
-font-size:13px;
-}
-
-.goldbtn{
-background:linear-gradient(135deg,#f5dfa5,#bd9145);
-color:#17130b;
-border:0;
-border-radius:9px;
-padding:12px 19px;
-font-weight:800;
-}
-
-.hero{
-max-width:1200px;
-margin:25px auto;
-padding:70px 7%;
-min-height:410px;
-border-radius:22px;
-display:flex;
-align-items:center;
-background:
-linear-gradient(90deg,#090909 5%,#090909df 48%,#09090920),
-url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600')
-center/cover;
-}
-
-.hero-content{max-width:520px}
-.eyebrow{color:var(--gold);letter-spacing:4px;font-size:12px}
-.hero h1{font-size:clamp(32px,5vw,55px);line-height:1.5;margin:15px 0}
-.hero p{color:#ddd;line-height:2;font-size:14px}
-
-.container{max-width:1200px;margin:auto;padding:20px}
-.section-head{margin:40px 0 20px}
-.section-head h2{font-size:25px;margin:0}
-.section-head p{color:var(--muted);font-size:12px}
-.goldline{width:55px;height:3px;background:var(--gold);margin-top:12px}
-
-.search{
-width:100%;
-padding:14px;
-background:#17171b;
-border:1px solid #444;
-border-radius:10px;
-color:white;
-outline:none;
-}
-
-.categories{display:flex;gap:10px;overflow:auto;padding:17px 0}
-.cat{
-white-space:nowrap;
-background:#1c1c21;
-color:#ddd;
-border:1px solid #383838;
-padding:10px 18px;
-border-radius:30px;
-}
-.cat.active,.cat:hover{background:var(--gold);color:#111}
-
-.products{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:18px;
-}
-
-.card{
-background:var(--panel);
-border:1px solid #ffffff16;
-border-radius:15px;
-overflow:hidden;
-transition:.3s;
-}
-
-.card:hover{transform:translateY(-7px);border-color:var(--gold)}
-
-.product-image{
-height:220px;
-position:relative;
-overflow:hidden;
-background:linear-gradient(135deg,#29251c,#111);
-display:flex;
-align-items:center;
-justify-content:center;
-}
-
-.product-image img{
-width:100%;
-height:100%;
-object-fit:cover;
-transition:.5s;
-}
-
-.card:hover .product-image img{transform:scale(1.08)}
-
-.image-fallback:after{
-content:"ROYAL STORE";
-color:var(--gold);
-font-size:22px;
-font-weight:800;
-letter-spacing:3px;
-position:absolute;
-}
-
-.tag{
-position:absolute;
-top:12px;
-right:12px;
-background:var(--gold);
-color:#111;
-padding:5px 11px;
-border-radius:20px;
-font-size:10px;
-font-weight:bold;
-}
-
-.card-info{padding:15px}
-.card h3{font-size:15px;margin:0 0 8px}
-.desc{font-size:11px;color:#aaa;line-height:1.8;min-height:38px}
-.price{color:var(--gold);font-weight:800;margin:12px 0}
-.add{
-width:100%;
-padding:11px;
-border:0;
-border-radius:8px;
-background:var(--gold);
-color:#17130b;
-font-weight:bold;
-}
-
-.benefits{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
-margin:45px 0;
-}
-
-.benefit,.cartbox{
-background:var(--panel);
-border:1px solid #ffffff16;
-border-radius:14px;
-padding:22px;
-text-align:center;
-}
-
-.benefit strong{display:block;color:var(--gold);margin:9px}
-.benefit span{font-size:12px;color:#aaa}
-
-.cartbox{margin:35px 0;text-align:right}
-.cartrow{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:10px;
-border-bottom:1px solid #333;
-padding:13px 0;
-font-size:13px;
-}
-
-.remove{
-background:#442629;
-color:#ffb5b5;
-border:0;
-border-radius:6px;
-padding:7px 10px;
-}
-
-.total{color:var(--gold);font-size:20px;font-weight:bold;margin:20px 0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Tahoma,Arial,sans-serif;background:#0b0b0b;color:#fff;line-height:1.8}
+header{background:#111;border-bottom:1px solid #b89543;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{font-size:25px;font-weight:bold;color:#d8b45a}
+header button,.btn{background:#d8b45a;color:#111;border:0;padding:10px 17px;border-radius:8px;font-weight:bold;cursor:pointer}
+.hero{text-align:center;padding:65px 15px;background:linear-gradient(135deg,#191919,#30240d)}
+.hero h1{font-size:35px;color:#e4c36d;margin-bottom:12px}
+.hero p{color:#ddd;margin-bottom:20px}
+.container{max-width:1150px;margin:auto;padding:30px 16px}
+.search{width:100%;padding:14px;border:1px solid #b89543;border-radius:9px;background:#171717;color:white;margin-bottom:18px;font-size:16px}
+.categories{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:25px}
+.categories button{background:#202020;color:#e5c36a;border:1px solid #8e7136;padding:9px 15px;border-radius:20px;cursor:pointer}
+.categories button.active{background:#d8b45a;color:#111}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{background:#171717;border:1px solid #393027;border-radius:13px;overflow:hidden;transition:.25s}
+.card:hover{transform:translateY(-5px);border-color:#d8b45a}
+.card img{width:100%;height:210px;object-fit:cover;background:#222}
+.card-content{padding:15px}
+.card h3{color:#e4c36d;margin-bottom:5px}
+.card p{font-size:13px;color:#bbb;min-height:45px}
+.price{color:#e4c36d;font-weight:bold;margin:12px 0}
+.actions{display:flex;gap:8px}
+.actions button{flex:1;padding:9px 5px;border:0;border-radius:7px;cursor:pointer;font-weight:bold}
+.add{background:#d8b45a;color:#111}
+.details{background:#333;color:white}
+.section-title{text-align:center;color:#e4c36d;font-size:25px;margin-bottom:25px}
+.panel{background:#171717;border:1px solid #514127;border-radius:12px;padding:20px;margin-top:35px}
+.cart-item{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid #333;padding:12px 0}
+.remove{background:#8c2929;color:white;border:0;border-radius:6px;padding:6px 10px;cursor:pointer}
+footer{text-align:center;background:#111;padding:30px 15px;margin-top:40px;border-top:1px solid #b89543;color:#bbb}
+footer h2{color:#d8b45a}
+.modal{display:none;position:fixed;inset:0;background:#000c;z-index:10;align-items:center;justify-content:center;padding:15px}
+.modal-box{background:#181818;border:1px solid #d8b45a;border-radius:12px;padding:20px;max-width:420px;width:100%;max-height:90vh;overflow:auto}
+.modal-box img{width:100%;height:220px;object-fit:cover;border-radius:8px}
+.close{float:left;background:#8c2929;color:white;border:0;padding:6px 12px;border-radius:6px;cursor:pointer}
 .empty{text-align:center;color:#aaa;padding:20px}
-
-.contact{
-background:linear-gradient(135deg,#201d17,#17171b);
-border:1px solid #6c5730;
-border-radius:16px;
-padding:25px;
-margin:35px 0;
-}
-
-.contact input,.contact textarea{
-width:100%;
-padding:13px;
-background:#101014;
-border:1px solid #444;
-color:white;
-border-radius:8px;
-margin:7px 0;
-}
-
-.contact textarea{min-height:90px}
-
-footer{
-text-align:center;
-padding:30px;
-color:#999;
-border-top:1px solid #333;
-font-size:12px;
-}
-
-@media(max-width:850px){
-.products{grid-template-columns:repeat(2,1fr)}
-.navlinks{display:none}
-.benefits{grid-template-columns:1fr}
-.hero{margin:12px;min-height:340px}
-}
-
-@media(max-width:420px){
-.products{gap:10px}
-.product-image{height:155px}
-.card-info{padding:10px}
-.container{padding:14px}
-}
+@media(max-width:600px){.hero h1{font-size:27px}header{justify-content:center}.card img{height:190px}}
 </style>
 </head>
-
 <body>
 
 <header>
-<div class="nav">
-<div class="logo">ROYAL STORE
-<small>PREMIUM SHOPPING</small>
-</div>
-
-<nav class="navlinks">
-<a href="#home">خانه</a>
-<a href="#shop">محصولات</a>
-<a href="#benefits">خدمات</a>
-<a href="#contact">تماس</a>
-</nav>
-
-<button class="goldbtn" onclick="document.getElementById('cart').scrollIntoView()">
-سبد خرید 🛒 <span id="count">۰</span>
-</button>
-</div>
+  <div class="logo">ROYAL STORE</div>
+  <button onclick="scrollToCart()">🛒 سبد خرید (<span id="cartCount">0</span>)</button>
 </header>
 
-<section class="hero" id="home">
-<div class="hero-content">
-<div class="eyebrow">ELEVATE YOUR STYLE</div>
-<h1>انتخابی متفاوت،<br>تجربه‌ای لوکس</h1>
-<p>به دنیای محصولات منتخب و خاص خوش آمدید. کیفیت، زیبایی و تجربه خرید آسان در یک جا.</p>
-<button class="goldbtn" onclick="document.getElementById('shop').scrollIntoView()">
-مشاهده محصولات ←
-</button>
-</div>
+<section class="hero">
+  <h1>به فروشگاه رویال خوش آمدید</h1>
+  <p>تجربه خرید محصولات خاص و لوکس</p>
+  <button class="btn" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">مشاهده محصولات</button>
 </section>
 
-<main class="container">
+<main class="container" id="shop">
+  <h2 class="section-title">محصولات فروشگاه</h2>
+  <input class="search" id="search" type="search" placeholder="جست‌وجوی محصول..." oninput="renderProducts()">
 
-<section id="shop">
-<div class="section-head">
-<h2>محصولات منتخب</h2>
-<div class="goldline"></div>
-<p>انتخاب‌هایی برای سلیقه‌های خاص</p>
-</div>
+  <div class="categories" id="categories">
+    <button class="active" onclick="setCategory('همه',this)">همه محصولات</button>
+    <button onclick="setCategory('پوشاک',this)">پوشاک</button>
+    <button onclick="setCategory('دیجیتال',this)">دیجیتال</button>
+    <button onclick="setCategory('اکسسوری',this)">اکسسوری</button>
+    <button onclick="setCategory('خانه',this)">خانه</button>
+  </div>
 
-<input class="search" id="search" placeholder="نام محصول را جستجو کن..." oninput="render()">
+  <div class="products" id="products"></div>
 
-<div class="categories" id="categories"></div>
-<div class="products" id="products"></div>
-</section>
-
-<section class="benefits" id="benefits">
-<div class="benefit">
-<div>✦</div>
-<strong>محصولات منتخب</strong>
-<span>انتخاب محصولات باکیفیت</span>
-</div>
-
-<div class="benefit">
-<div>♧</div>
-<strong>خرید آسان</strong>
-<span>فرآیند ساده ثبت سفارش</span>
-</div>
-
-<div class="benefit">
-<div>☎</div>
-<strong>پشتیبانی مشتریان</strong>
-<span>ارتباط مستقیم با فروشگاه</span>
-</div>
-</section>
-
-<section class="cartbox" id="cart">
-<h2>سبد خرید شما</h2>
-<div id="cartItems" class="empty">سبد خرید خالی است.</div>
-<div class="total">مجموع: <span id="total">۰</span> تومان</div>
-<button class="goldbtn" onclick="checkout()">ثبت سفارش از طریق واتساپ</button>
-</section>
-
-<section class="contact" id="contact">
-<h2>با ما در ارتباط باشید</h2>
-<p style="color:#aaa;font-size:13px">برای پرسش یا راهنمایی پیام خود را ارسال کنید.</p>
-<input id="customer" placeholder="نام شما">
-<input id="phone" placeholder="شماره تماس">
-<textarea id="message" placeholder="پیام شما"></textarea>
-<button class="goldbtn" onclick="contactUs()">ارسال پیام</button>
-</section>
-
+  <section class="panel" id="cart">
+    <h2 class="section-title">سبد خرید شما 🛒</h2>
+    <div id="cartItems"><p class="empty">سبد خرید خالی است.</p></div>
+    <h3 id="total" class="price">مجموع: ۰ تومان</h3>
+    <button class="btn" onclick="checkout()">ثبت سفارش در واتساپ</button>
+  </section>
 </main>
 
 <footer>
-<div class="logo">ROYAL STORE</div>
-<p>تجربه‌ای متفاوت از خرید آنلاین</p>
-<p>© تمامی حقوق این فروشگاه محفوظ است.</p>
+  <h2>ROYAL STORE</h2>
+  <p>فروشگاه آنلاین محصولات خاص و لوکس</p>
+  <p>برای سفارش و ارتباط با ما از واتساپ استفاده کنید.</p>
+  <p>© تمامی حقوق محفوظ است.</p>
 </footer>
 
+<div class="modal" id="productModal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal()">بستن ✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
 <script>
-
-const WHATSAPP="989120000000";
-
-const items=[
-{id:1,name:"ساعت کلاسیک",cat:"دیجیتال",price:2500000,img:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800",desc:"طراحی شیک و مناسب استایل روزانه"},
-{id:2,name:"هدفون بی‌سیم",cat:"دیجیتال",price:1200000,img:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800",desc:"صدای باکیفیت و طراحی مدرن"},
-{id:3,name:"کفش اسپرت",cat:"مد و پوشاک",price:1900000,img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800",desc:"راحتی و زیبایی برای هر روز"},
-{id:4,name:"کیف دستی",cat:"مد و پوشاک",price:1450000,img:"https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800",desc:"ظاهری زیبا و کاربردی"},
-{id:5,name:"دوربین عکاسی",cat:"دیجیتال",price:8500000,img:"https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800",desc:"برای ثبت لحظه‌های ماندگار"},
-{id:6,name:"عینک آفتابی",cat:"مد و پوشاک",price:850000,img:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800",desc:"طراحی جذاب و مدرن"},
-{id:7,name:"عطر لوکس",cat:"زیبایی",price:1100000,img:"https://images.unsplash.com/photo-1541643600914-78b084683601?w=800",desc:"رایحه‌ای خاص و ماندگار"},
-{id:8,name:"چراغ دکوراتیو",cat:"خانه",price:650000,img:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=800",desc:"زیبایی و نور برای فضای خانه"}
+const items = [
+{id:1,name:"ساعت کلاسیک",category:"اکسسوری",price:2500000,img:"images/watch.jpg",desc:"ساعت شیک و کلاسیک با طراحی لوکس و جذاب."},
+{id:2,name:"هدفون بی‌سیم",category:"دیجیتال",price:1200000,img:"images/headphones.jpg",desc:"هدفون بی‌سیم با طراحی مدرن و کیفیت صدای مناسب."},
+{id:3,name:"کفش اسپرت",category:"پوشاک",price:1900000,img:"images/sneakers.jpg",desc:"کفش اسپرت با طراحی زیبا و مناسب استفاده روزمره."},
+{id:4,name:"کیف دستی",category:"اکسسوری",price:1450000,img:"images/handbag.jpg",desc:"کیف دستی شیک با طراحی خاص و ظاهری جذاب."},
+{id:5,name:"دوربین عکاسی",category:"دیجیتال",price:8500000,img:"images/camera.jpg",desc:"دوربین عکاسی برای ثبت لحظه‌های خاطره‌انگیز."},
+{id:6,name:"عینک آفتابی",category:"اکسسوری",price:850000,img:"images/sunglasses.jpg",desc:"عینک آفتابی با طراحی مدرن و زیبا."},
+{id:7,name:"عطر لوکس",category:"اکسسوری",price:1100000,img:"images/perfume.jpg",desc:"عطری خاص و خوش‌بو برای سلیقه‌های متفاوت."},
+{id:8,name:"چراغ دکوراتیو",category:"خانه",price:650000,img:"images/lamp.jpg",desc:"چراغ دکوراتیو زیبا برای جذاب‌تر کردن فضای خانه."}
 ];
 
 let cart=[];
-let category="همه";
+let currentCategory="همه";
 
-const money=n=>n.toLocaleString("fa-IR");
-
-function renderCategories(){
-let cats=["همه",...new Set(items.map(p=>p.cat))];
-
-document.getElementById("categories").innerHTML=cats.map(c=>
-`<button class="cat ${category===c?'active':''}" onclick="setCategory('${c}')">${c}</button>`
-).join("");
+function money(n){
+ return new Intl.NumberFormat("fa-IR").format(n)+" تومان";
 }
 
-function setCategory(c){
-category=c;
-render();
+function renderProducts(){
+ const q=document.getElementById("search").value.trim().toLowerCase();
+ const filtered=items.filter(p=>
+  (currentCategory==="همه"||p.category===currentCategory)&&
+  (p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q))
+ );
+ const area=document.getElementById("products");
+ if(!filtered.length){
+  area.innerHTML='<p class="empty">محصولی پیدا نشد.</p>';
+  return;
+ }
+ area.innerHTML=filtered.map(p=>`
+ <article class="card">
+  <img src="${p.img}" alt="${p.name}" onerror="this.onerror=null;this.src='https://placehold.co/500x350/171717/d8b45a?text=ROYAL+STORE'">
+  <div class="card-content">
+   <h3>${p.name}</h3>
+   <p>${p.desc}</p>
+   <div class="price">${money(p.price)}</div>
+   <div class="actions">
+    <button class="add" onclick="addToCart(${p.id})">افزودن به سبد</button>
+    <button class="details" onclick="showDetails(${p.id})">جزئیات</button>
+   </div>
+  </div>
+ </article>`).join("");
 }
 
-function render(){
-renderCategories();
-
-let q=document.getElementById("search").value.toLowerCase();
-
-let filtered=items.filter(p=>
-(category==="همه"||p.cat===category)&&p.name.toLowerCase().includes(q)
-);
-
-document.getElementById("products").innerHTML=filtered.map(p=>`
-<div class="card">
-<div class="product-image">
-<img
-src="${p.img}"
-alt="${p.name}"
-loading="lazy"
-referrerpolicy="no-referrer"
-onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('image-fallback');"
->
-</div>
-
-<div class="card-info">
-<h3>${p.name}</h3>
-<div class="desc">${p.desc}</div>
-<div class="price">${money(p.price)} تومان</div>
-<button class="add" onclick="add(${p.id})">افزودن به سبد</button>
-</div>
-</div>
-`).join("")||'<p class="empty">محصولی پیدا نشد.</p>';
-
-renderCart();
+function setCategory(cat,btn){
+ currentCategory=cat;
+ document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
+ btn.classList.add("active");
+ renderProducts();
 }
 
-function add(id){
-let x=cart.find(p=>p.id===id);
-if(x)x.qty++;
-else cart.push({id,qty:1});
-renderCart();
+function addToCart(id){
+ const found=cart.find(x=>x.id===id);
+ if(found)found.qty++;
+ else cart.push({id,qty:1});
+ renderCart();
 }
 
-function removeItem(id){
-cart=cart.filter(p=>p.id!==id);
-renderCart();
+function removeFromCart(id){
+ cart=cart.filter(x=>x.id!==id);
+ renderCart();
 }
 
 function renderCart(){
-let count=cart.reduce((s,p)=>s+p.qty,0);
+ const area=document.getElementById("cartItems");
+ let count=cart.reduce((s,x)=>s+x.qty,0);
+ document.getElementById("cartCount").textContent=new Intl.NumberFormat("fa-IR").format(count);
+ let total=0;
+ if(!cart.length){
+  area.innerHTML='<p class="empty">سبد خرید خالی است.</p>';
+ }else{
+  area.innerHTML=cart.map(x=>{
+   const p=items.find(y=>y.id===x.id);
+   total+=p.price*x.qty;
+   return `<div class="cart-item">
+    <span>${p.name} × ${new Intl.NumberFormat("fa-IR").format(x.qty)}</span>
+    <span>${money(p.price*x.qty)}</span>
+    <button class="remove" onclick="removeFromCart(${p.id})">حذف</button>
+   </div>`;
+  }).join("");
+ }
+ document.getElementById("total").textContent="مجموع: "+money(total);
+}
 
-let total=cart.reduce((s,p)=>
-s+items.find(x=>x.id===p.id).price*p.qty,0);
+function scrollToCart(){
+ document.getElementById("cart").scrollIntoView({behavior:"smooth"});
+}
 
-document.getElementById("count").textContent=money(count);
-document.getElementById("total").textContent=money(total);
+function showDetails(id){
+ const p=items.find(x=>x.id===id);
+ document.getElementById("modalContent").innerHTML=`
+ <img src="${p.img}" alt="${p.name}">
+ <h2 style="color:#e4c36d;margin-top:12px">${p.name}</h2>
+ <p>${p.desc}</p>
+ <p class="price">${money(p.price)}</p>
+ <button class="btn" onclick="addToCart(${p.id});closeModal()">افزودن به سبد خرید</button>`;
+ document.getElementById("productModal").style.display="flex";
+}
 
-document.getElementById("cartItems").innerHTML=cart.length?
-cart.map(x=>{
-let p=items.find(z=>z.id===x.id);
-
-return `<div class="cartrow">
-<span>${p.name} × ${x.qty}</span>
-<span>${money(p.price*x.qty)} تومان
-<button class="remove" onclick="removeItem(${p.id})">حذف</button>
-</span>
-</div>`;
-}).join("")
-:'<div class="empty">سبد خرید شما خالی است.</div>';
+function closeModal(){
+ document.getElementById("productModal").style.display="none";
 }
 
 function checkout(){
-if(!cart.length){
-alert("سبد خرید خالی است.");
-return;
+ if(!cart.length){
+  alert("سبد خرید شما خالی است.");
+  return;
+ }
+ let message="سلام، برای خرید این محصولات سفارش دارم:%0A";
+ let total=0;
+ cart.forEach(x=>{
+  const p=items.find(y=>y.id===x.id);
+  total+=p.price*x.qty;
+  message+=`%0A${encodeURIComponent(p.name)} - تعداد ${x.qty} - ${encodeURIComponent(money(p.price*x.qty))}`;
+ });
+ message+=`%0Aمجموع: ${encodeURIComponent(money(total))}`;
+ // شماره واتساپ فروشگاه را بعداً در این قسمت وارد می‌کنیم.
+ const phone="989XXXXXXXXX";
+ if(phone==="989XXXXXXXXX"){
+  alert("برای فعال شدن سفارش واتساپی، باید شماره واتساپ فروشگاه را در کد وارد کنیم.");
+  return;
+ }
+ window.open("https://wa.me/"+phone+"?text="+message,"_blank");
 }
 
-let msg="سلام، برای سفارش این محصولات پیام می‌دهم:\n";
-
-cart.forEach(x=>{
-let p=items.find(z=>z.id===x.id);
-msg+=p.name+" - تعداد: "+x.qty+"\n";
-});
-
-let total=cart.reduce((s,x)=>
-s+items.find(p=>p.id===x.id).price*x.qty,0);
-
-msg+="مجموع: "+money(total)+" تومان";
-
-window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(msg),"_blank");
-}
-
-function contactUs(){
-let name=document.getElementById("customer").value.trim();
-let phone=document.getElementById("phone").value.trim();
-let message=document.getElementById("message").value.trim();
-
-if(!name||!phone||!message){
-alert("لطفاً همه قسمت‌ها را پر کنید.");
-return;
-}
-
-let msg="نام: "+name+"\nشماره: "+phone+"\nپیام: "+message;
-
-window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(msg),"_blank");
-}
-
-render();
-
+renderProducts();
+renderCart();
 </script>
 </body>
 </html>
+
+
+
+
 
 
 
